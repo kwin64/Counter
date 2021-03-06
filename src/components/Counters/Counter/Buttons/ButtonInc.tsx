@@ -7,13 +7,16 @@ type PropsType = {
 }
 
 const ButtonInc: React.FC<PropsType> = (
-    {counter, addNumberCount}
+    {
+        counter,
+        addNumberCount
+    }
 ) => {
 
     return (
-            <button className={s.button}
-                    onClick={addNumberCount}
-                    disabled={counter === 5}>inc</button>
+        <button className={s.button}
+                onClick={addNumberCount}
+                disabled={counter === 5}>inc</button>
     );
 }
 

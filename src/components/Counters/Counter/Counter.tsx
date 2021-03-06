@@ -1,27 +1,30 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './Counter.module.css';
 import ButtonInc from "./Buttons/ButtonInc";
 import OutputResult from "./OutputResult/OutputResult";
 import ButtonReset from "./Buttons/ButtonReset";
 
-const Counter = () => {
+type PropsType = {
+    addNumberCount: () => void
+    counterValue: number
+    resetCounter: () => void
+}
 
-    const [counter, setCounter] = useState<number>(0)
-
-    const addNumberCount = () => {
-        setCounter(counter + 1)
+const Counter: React.FC<PropsType> = (
+    {
+        addNumberCount,
+        counterValue,
+        resetCounter
     }
-    const resetCounter = () => {
-        setCounter(0)
-    }
+) => {
 
     return (
         <div className={s.container}>
-            <OutputResult counter={counter}/>
+            <OutputResult counter={counterValue}/>
             <div className={s.keyboards}>
-                <ButtonInc counter={counter}
+                <ButtonInc counter={counterValue}
                            addNumberCount={addNumberCount}/>
-                <ButtonReset counter={counter}
+                <ButtonReset counter={counterValue}
                              resetCounter={resetCounter}/>
             </div>
         </div>

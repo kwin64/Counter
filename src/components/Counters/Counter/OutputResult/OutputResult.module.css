@@ -2,13 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 100px;
-    width: 500px;
-    height: 250px;
-    margin: 50px auto auto;
+    font-size: 25px;
+    width: 300px;
+    height: 150px;
+    margin: 35px auto auto;
     border: 1px solid #000000;
     border-radius: 10px;
-    background-color: #95bbb3;
 }
 .finalResult {
     color: #ff3700;

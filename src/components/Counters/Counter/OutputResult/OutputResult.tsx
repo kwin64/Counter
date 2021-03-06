@@ -6,7 +6,9 @@ type PropsType = {
 }
 
 const OutputResult: React.FC<PropsType> = (
-    {counter}
+    {
+        counter
+    }
 ) => {
 
     return (

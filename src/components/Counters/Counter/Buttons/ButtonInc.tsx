@@ -16,7 +16,7 @@ const ButtonInc: React.FC<PropsType> = (
     return (
         <button className={s.button}
                 onClick={addNumberCount}
-                disabled={counter === 5}>inc</button>
+                disabled={false}>inc</button>
     );
 }
 

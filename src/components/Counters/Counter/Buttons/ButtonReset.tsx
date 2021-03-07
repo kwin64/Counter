@@ -16,7 +16,7 @@ const ButtonReset: React.FC<PropsType> = (
     return (
         <button className={s.button}
                 onClick={resetCounter}
-                disabled={counter === 0}>reset</button>
+                disabled={false}>reset</button>
     );
 }
 

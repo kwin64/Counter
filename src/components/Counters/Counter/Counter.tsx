@@ -3,6 +3,7 @@ import s from './Counter.module.css';
 import ButtonInc from "./Buttons/ButtonInc";
 import OutputResult from "./OutputResult/OutputResult";
 import ButtonReset from "./Buttons/ButtonReset";
+import {HelpMessageType} from "../../../App";
 
 type PropsType = {
     addNumberCount: () => void
@@ -10,7 +11,7 @@ type PropsType = {
     resetCounter: () => void
     maxValue: number
     startValue: number
-    error:boolean
+    helpMessage: HelpMessageType
 }
 
 const Counter: React.FC<PropsType> = (
@@ -20,7 +21,7 @@ const Counter: React.FC<PropsType> = (
         resetCounter,
         maxValue,
         startValue,
-        error
+        helpMessage
     }
 ) => {
 
@@ -29,7 +30,7 @@ const Counter: React.FC<PropsType> = (
         <div className={s.container}>
             <OutputResult counterValue={counterValue}
                           maxValue={maxValue}
-                          error={error}
+                          helpMessage={helpMessage}
                           />
             <div className={s.keyboards}>
                 <ButtonInc counter={counterValue}

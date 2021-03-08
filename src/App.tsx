@@ -3,9 +3,7 @@ import Counter from './components/Counters/Counter/Counter';
 import SettingCounter from "./components/Counters/SettingCounter/SettingCounter";
 import s from './App.module.css';
 
-export type HelpMessageType = {
-
-}
+export type HelpMessageType = 0 | 'Incorrect value' | 'Enter values and press set'
 
 const App = () => {
 
@@ -13,10 +11,13 @@ const App = () => {
     const [maxValue, setMaxValue] = useState<number>(2)
     const [startValue, setStartValue] = useState<number>(0)
 
-    const [error, setError] = useState<boolean>(false)
-    const [helpMessage, setHelpMessage] = useState<boolean>()
+    // const [error, setError] = useState<boolean>(false)
+    const [helpMessage, setHelpMessage] = useState<HelpMessageType>(0)
 
 
+    if (startValue < 0 && startValue > maxValue && maxValue <= 1) {
+        setHelpMessage('Incorrect value')
+    } else (setHelpMessage('Enter values and press set'))
 
     const addNumberCount = () => {
         if (counterValue + 1 <= maxValue) {
@@ -42,11 +43,11 @@ const App = () => {
                      resetCounter={resetCounter}
                      maxValue={maxValue}
                      startValue={startValue}
-                     error={error}/>
+                     helpMessage={helpMessage}
+                     />
             <SettingCounter addNewValueCounter={addNewValueCounter}
                             maxValue={maxValue}
                             startValue={startValue}
-                            setError={setError}
             />
         </div>
     );

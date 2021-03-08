@@ -6,7 +6,6 @@ type PropsType = {
     max: number
     setMax: (value: number) => void
     setStart: (value: number) => void
-    setError: Dispatch<SetStateAction<boolean>>
 }
 
 const SettingCounterValues: React.FC<PropsType> = (
@@ -15,30 +14,29 @@ const SettingCounterValues: React.FC<PropsType> = (
         max,
         setMax,
         setStart,
-        setError
     }
 ) => {
 
-    const [checkedValue, setCheckedValue] = useState(false)
+    // const [checkedValue, setCheckedValue] = useState(false)
 
-    setError(checkedValue) //???
+    /*setError(checkedValue)*/ //???
 
     const newMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.currentTarget.valueAsNumber <= 1) {
+        /*if (e.currentTarget.valueAsNumber <= 1) {
             setCheckedValue(true)
         }
         if (e.currentTarget.valueAsNumber > 0) {
 
-        }
+        }*/
         setMax(e.currentTarget.valueAsNumber)
     }
     const newStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.currentTarget.valueAsNumber < 0) {
+    /*    if (e.currentTarget.valueAsNumber < 0) {
             setCheckedValue(true)
         }
         if (e.currentTarget.valueAsNumber > 0) {
 
-        }
+        }*/
         setStart(e.currentTarget.valueAsNumber)
     }
 

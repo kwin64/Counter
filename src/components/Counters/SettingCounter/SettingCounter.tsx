@@ -7,7 +7,6 @@ type PropsType = {
     addNewValueCounter: (startValue: number, maxValue: number) => void
     startValue: number
     maxValue: number
-    setError: Dispatch<SetStateAction<boolean>>
 }
 
 const SettingCounter: React.FC<PropsType> = (
@@ -15,7 +14,6 @@ const SettingCounter: React.FC<PropsType> = (
         addNewValueCounter,
         startValue,
         maxValue,
-        setError
     }
 ) => {
 
@@ -30,8 +28,7 @@ const SettingCounter: React.FC<PropsType> = (
             <SettingCounterValues setMax={setMax}
                                   setStart={setStart}
                                   max={max}
-                                  start={start}
-                                  setError={setError}/>
+                                  start={start}/>
             <div className={s.keyboards}>
                 <ButtonSet onClick={setNewValue}/>
             </div>

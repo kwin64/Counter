@@ -1,19 +1,25 @@
-import React from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import s from './OutputResult.module.css';
 
 type PropsType = {
-    counter: number,
+    counterValue: number
+    maxValue:number
+    error:boolean
 }
 
 const OutputResult: React.FC<PropsType> = (
     {
-        counter
+        counterValue,
+        maxValue,
+        error
     }
 ) => {
 
     return (
         <div className={s.result}>
-            <span className={counter === 5 ? s.finalResult : ''}>{counter}</span>
+            <span className={
+                counterValue === maxValue ? s.finalResult : ''}>
+                {error ? 'Incorrect value!' : 'Enter values and press `set`'}</span>
         </div>
     );
 }

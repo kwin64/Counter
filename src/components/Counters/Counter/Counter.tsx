@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import s from './Counter.module.css';
 import ButtonInc from "./Buttons/ButtonInc";
 import OutputResult from "./OutputResult/OutputResult";
@@ -8,24 +8,36 @@ type PropsType = {
     addNumberCount: () => void
     counterValue: number
     resetCounter: () => void
+    maxValue: number
+    startValue: number
+    error:boolean
 }
 
 const Counter: React.FC<PropsType> = (
     {
         addNumberCount,
         counterValue,
-        resetCounter
+        resetCounter,
+        maxValue,
+        startValue,
+        error
     }
 ) => {
 
+
     return (
         <div className={s.container}>
-            <OutputResult counter={counterValue}/>
+            <OutputResult counterValue={counterValue}
+                          maxValue={maxValue}
+                          error={error}
+                          />
             <div className={s.keyboards}>
                 <ButtonInc counter={counterValue}
-                           addNumberCount={addNumberCount}/>
+                           addNumberCount={addNumberCount}
+                           maxValue={maxValue}/>
                 <ButtonReset counter={counterValue}
-                             resetCounter={resetCounter}/>
+                             resetCounter={resetCounter}
+                             startValue={startValue}/>
             </div>
         </div>
     );

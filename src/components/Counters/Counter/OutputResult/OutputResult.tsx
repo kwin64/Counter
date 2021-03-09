@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useState} from "react";
+import React from "react";
 import s from './OutputResult.module.css';
 import {HelpMessageType} from "../../../../App";
 
@@ -19,9 +19,7 @@ const OutputResult: React.FC<PropsType> = (
     return (
         <div className={s.result}>
             <span className={counterValue === maxValue ? s.finalResult : ''}>
-                {counterValue}</span>
-            {/*{helpMessage}{counterValue} как связать?????*/}
-            {/*(error ? 'Incorrect value!' : 'Enter values and press `set`')??*/}
+                {helpMessage ? helpMessage : counterValue}</span>
         </div>
     );
 }

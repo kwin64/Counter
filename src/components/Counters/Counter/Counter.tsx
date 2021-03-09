@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import s from './Counter.module.css';
 import ButtonInc from "./Buttons/ButtonInc";
 import OutputResult from "./OutputResult/OutputResult";
@@ -30,8 +30,7 @@ const Counter: React.FC<PropsType> = (
         <div className={s.container}>
             <OutputResult counterValue={counterValue}
                           maxValue={maxValue}
-                          helpMessage={helpMessage}
-                          />
+                          helpMessage={helpMessage}/>
             <div className={s.keyboards}>
                 <ButtonInc counter={counterValue}
                            addNumberCount={addNumberCount}

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, Dispatch, SetStateAction, useState} from "react";
+import React, {ChangeEvent} from "react";
 import s from "./SettingCounterValues.module.css";
 
 type PropsType = {
@@ -17,26 +17,10 @@ const SettingCounterValues: React.FC<PropsType> = (
     }
 ) => {
 
-    // const [checkedValue, setCheckedValue] = useState(false)
-
-    /*setError(checkedValue)*/ //???
-
     const newMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-        /*if (e.currentTarget.valueAsNumber <= 1) {
-            setCheckedValue(true)
-        }
-        if (e.currentTarget.valueAsNumber > 0) {
-
-        }*/
         setMax(e.currentTarget.valueAsNumber)
     }
     const newStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-    /*    if (e.currentTarget.valueAsNumber < 0) {
-            setCheckedValue(true)
-        }
-        if (e.currentTarget.valueAsNumber > 0) {
-
-        }*/
         setStart(e.currentTarget.valueAsNumber)
     }
 

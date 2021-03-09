@@ -10,14 +10,11 @@ const App = () => {
     const [counterValue, setCounterValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(2)
     const [startValue, setStartValue] = useState<number>(0)
-
-    // const [error, setError] = useState<boolean>(false)
     const [helpMessage, setHelpMessage] = useState<HelpMessageType>(0)
 
 
-    if (startValue < 0 && startValue > maxValue && maxValue <= 1) {
-        setHelpMessage('Incorrect value')
-    } else (setHelpMessage('Enter values and press set'))
+
+
 
     const addNumberCount = () => {
         if (counterValue + 1 <= maxValue) {
@@ -29,6 +26,7 @@ const App = () => {
         setCounterValue(startValue)
         setMaxValue(maxValue)
         setStartValue(startValue)
+        setHelpMessage(0)
     }
 
     const resetCounter = () => {
@@ -48,6 +46,7 @@ const App = () => {
             <SettingCounter addNewValueCounter={addNewValueCounter}
                             maxValue={maxValue}
                             startValue={startValue}
+                            setHelpMessage={setHelpMessage}
             />
         </div>
     );

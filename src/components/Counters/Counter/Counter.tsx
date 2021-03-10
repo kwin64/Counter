@@ -32,12 +32,14 @@ const Counter: React.FC<PropsType> = (
                           maxValue={maxValue}
                           helpMessage={helpMessage}/>
             <div className={s.keyboards}>
-                <ButtonInc counter={counterValue}
+                <ButtonInc helpMessage={helpMessage}
                            addNumberCount={addNumberCount}
-                           maxValue={maxValue}/>
-                <ButtonReset counter={counterValue}
+                           maxValue={maxValue}
+                           counterValue={counterValue}/>
+                <ButtonReset maxValue={maxValue}
+                             helpMessage={helpMessage}
                              resetCounter={resetCounter}
-                             startValue={startValue}/>
+                             counterValue={startValue}/>
             </div>
         </div>
     );

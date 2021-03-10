@@ -9,6 +9,7 @@ type PropsType = {
     startValue: number
     maxValue: number
     setHelpMessage: (value: HelpMessageType) => void
+    helpMessage: HelpMessageType
 }
 
 const SettingCounter: React.FC<PropsType> = (
@@ -16,7 +17,8 @@ const SettingCounter: React.FC<PropsType> = (
         addNewValueCounter,
         startValue,
         maxValue,
-        setHelpMessage
+        setHelpMessage,
+        helpMessage
     }
 ) => {
 
@@ -40,7 +42,8 @@ const SettingCounter: React.FC<PropsType> = (
                                   max={max}
                                   start={start}/>
             <div className={s.keyboards}>
-                <ButtonSet onClick={setNewValue}/>
+                <ButtonSet onClick={setNewValue}
+                           helpMessage={helpMessage}/>
             </div>
         </div>
     );

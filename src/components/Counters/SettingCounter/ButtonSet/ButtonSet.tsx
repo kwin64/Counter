@@ -1,20 +1,23 @@
 import React from 'react';
 import s from './ButtonSet.module.css';
+import {HelpMessageType} from "../../../../App";
 
 type PropsType = {
     onClick: () => void
+    helpMessage: HelpMessageType
 }
 
 const ButtonSet: React.FC<PropsType> = (
     {
-        onClick
+        onClick,
+        helpMessage
     }
 ) => {
 
     return (
         <button className={s.button}
                 onClick={onClick}
-                disabled={false}>set</button>
+                disabled={helpMessage === 'Enter values and press set' ? false : true}>set</button>
     );
 }
 

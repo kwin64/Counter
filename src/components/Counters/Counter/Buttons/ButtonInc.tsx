@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Buttons.module.css';
 import {HelpMessageType} from "../../../../App";
 
@@ -7,6 +7,7 @@ type PropsType = {
     maxValue: number
     addNumberCount: () => void
     counterValue: number
+    disabled:boolean
 }
 
 const ButtonInc: React.FC<PropsType> = (
@@ -14,14 +15,16 @@ const ButtonInc: React.FC<PropsType> = (
         addNumberCount,
         maxValue,
         helpMessage,
-        counterValue
+        counterValue,
+        disabled
     }
 ) => {
 
     return (
         <button className={s.button}
                 onClick={addNumberCount}
-                disabled={true ? maxValue === counterValue : false}>inc</button> //????
+                disabled={disabled}
+        >inc</button>
     );
 }
 

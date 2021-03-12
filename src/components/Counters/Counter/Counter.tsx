@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Counter.module.css';
 import ButtonInc from "./Buttons/ButtonInc";
 import OutputResult from "./OutputResult/OutputResult";
 import ButtonReset from "./Buttons/ButtonReset";
 import {HelpMessageType} from "../../../App";
+import SettingCounter from "../SettingCounter/SettingCounter";
 
 type PropsType = {
     addNumberCount: () => void
@@ -12,6 +13,7 @@ type PropsType = {
     maxValue: number
     startValue: number
     helpMessage: HelpMessageType
+    disableSettingsBtn:boolean
 }
 
 const Counter: React.FC<PropsType> = (
@@ -21,10 +23,10 @@ const Counter: React.FC<PropsType> = (
         resetCounter,
         maxValue,
         startValue,
-        helpMessage
+        helpMessage,
+        disableSettingsBtn
     }
 ) => {
-
 
     return (
         <div className={s.container}>
@@ -35,11 +37,15 @@ const Counter: React.FC<PropsType> = (
                 <ButtonInc helpMessage={helpMessage}
                            addNumberCount={addNumberCount}
                            maxValue={maxValue}
-                           counterValue={counterValue}/>
+                           counterValue={counterValue}
+                           disabled={disableSettingsBtn}
+                />
                 <ButtonReset maxValue={maxValue}
                              helpMessage={helpMessage}
                              resetCounter={resetCounter}
-                             counterValue={startValue}/>
+                             counterValue={startValue}
+                             disabled={disableSettingsBtn}
+                             />
             </div>
         </div>
     );

@@ -19,7 +19,8 @@ const OutputResult: React.FC<PropsType> = (
     return (
         <div className={s.result}>
             <span className={counterValue === maxValue ? s.finalResult : ''}>
-                {helpMessage ? helpMessage : counterValue}</span>
+                {helpMessage ? helpMessage : counterValue}
+            </span>
         </div>
     );
 }

@@ -6,8 +6,9 @@
     width: 300px;
     height: 150px;
     margin: 35px auto auto;
-    border: 1px solid #000000;
+    border: 1px solid white;
     border-radius: 10px;
+    background-color: #f8eb84;
 }
 .finalResult {
     color: #ff3700;

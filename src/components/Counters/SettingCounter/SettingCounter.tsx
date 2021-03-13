@@ -18,8 +18,7 @@ const SettingCounter: React.FC<PropsType> = (
         startValue,
         maxValue,
         setHelpMessage,
-        helpMessage
-    }
+        helpMessage}
 ) => {
 
     const [start, setStart] = useState<number>(startValue)

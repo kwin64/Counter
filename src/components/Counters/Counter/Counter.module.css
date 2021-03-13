@@ -4,11 +4,12 @@
     width: 400px;
     height: 300px;
     margin: 200px auto auto auto;
+    background-color: #96995b;
 }
 .keyboards {
     display: flex;
     justify-content: center;
-    border: 1px solid #000000;
+    border: 1px solid white;
     border-radius: 10px;
     margin: 30px 50px auto 50px;
     padding: 10px;

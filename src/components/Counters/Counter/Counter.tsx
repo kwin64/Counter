@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import s from './Counter.module.css';
 import ButtonInc from "./Buttons/ButtonInc";
 import OutputResult from "./OutputResult/OutputResult";
 import ButtonReset from "./Buttons/ButtonReset";
 import {HelpMessageType} from "../../../App";
-import SettingCounter from "../SettingCounter/SettingCounter";
 
 type PropsType = {
     addNumberCount: () => void
@@ -13,7 +12,8 @@ type PropsType = {
     maxValue: number
     startValue: number
     helpMessage: HelpMessageType
-    disableSettingsBtn:boolean
+    disableButtonInc: boolean
+    disableButtonReset: boolean
 }
 
 const Counter: React.FC<PropsType> = (
@@ -24,7 +24,8 @@ const Counter: React.FC<PropsType> = (
         maxValue,
         startValue,
         helpMessage,
-        disableSettingsBtn
+        disableButtonInc,
+        disableButtonReset
     }
 ) => {
 
@@ -34,18 +35,14 @@ const Counter: React.FC<PropsType> = (
                           maxValue={maxValue}
                           helpMessage={helpMessage}/>
             <div className={s.keyboards}>
-                <ButtonInc helpMessage={helpMessage}
-                           addNumberCount={addNumberCount}
+                <ButtonInc counterValue={counterValue}
                            maxValue={maxValue}
-                           counterValue={counterValue}
-                           disabled={disableSettingsBtn}
-                />
-                <ButtonReset maxValue={maxValue}
-                             helpMessage={helpMessage}
+                           addNumberCount={addNumberCount}
+                           disableButtonInc={disableButtonInc}/>
+                <ButtonReset counterValue={startValue}
+                             maxValue={maxValue}
                              resetCounter={resetCounter}
-                             counterValue={startValue}
-                             disabled={disableSettingsBtn}
-                             />
+                             disableButtonReset={disableButtonReset}/>
             </div>
         </div>
     );

@@ -1,26 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import s from './Buttons.module.css';
-import {HelpMessageType} from "../../../../App";
 
 type PropsType = {
+    resetCounter: () => void
+    disableButtonReset: boolean
     counterValue: number
     maxValue: number
-    resetCounter: () => void
-    helpMessage: HelpMessageType
-    disabled:boolean
 }
 
 const ButtonReset: React.FC<PropsType> = (
     {
         resetCounter,
-        disabled
+        disableButtonReset
     }
 ) => {
 
     return (
         <button className={s.button}
                 onClick={resetCounter}
-                disabled={disabled}
+                disabled={disableButtonReset}
         >reset</button>
     );
 }

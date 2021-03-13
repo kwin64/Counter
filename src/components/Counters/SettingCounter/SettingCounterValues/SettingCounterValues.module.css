@@ -11,22 +11,51 @@
     background-color: #f8eb84;
 }
 
+.error {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    width: 300px;
+    height: 150px;
+    margin: 35px auto auto;
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: #f8eb84;
+    transition: 0.2s;
+}
+
 .inputValuesMax {
     border-radius: 5px;
     width: 100px;
     height: 25px;
-    text-align:center;
+    text-align: center;
     font-size: 20px;
     margin: 0 5px 5px 5px;
+    background: #02c602;
+    transition: 0.2s;
+}
+
+.errorInput {
+    border-radius: 5px;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    font-size: 20px;
+    margin: 0 5px 5px 5px;
+    background: #ff0000;
+    transition: 0.2s;
 }
 
 .inputValuesStart {
     border-radius: 5px;
     width: 100px;
     height: 25px;
-    text-align:center;
+    text-align: center;
     font-size: 20px;
     margin: 0 5px 5px 5px;
+    background: #02c602;
+    transition: 0.2s;
 }
 
 .containerInputValuesMax {

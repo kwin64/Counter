@@ -10,7 +10,6 @@ type PropsType = {
     counterValue: number
     resetCounter: () => void
     maxValue: number
-    startValue: number
     helpMessage: HelpMessageType
     disableButtonInc: boolean
     disableButtonReset: boolean
@@ -22,7 +21,6 @@ const Counter: React.FC<PropsType> = (
         counterValue,
         resetCounter,
         maxValue,
-        startValue,
         helpMessage,
         disableButtonInc,
         disableButtonReset
@@ -39,9 +37,7 @@ const Counter: React.FC<PropsType> = (
                            maxValue={maxValue}
                            addNumberCount={addNumberCount}
                            disableButtonInc={disableButtonInc}/>
-                <ButtonReset counterValue={startValue}
-                             maxValue={maxValue}
-                             resetCounter={resetCounter}
+                <ButtonReset resetCounter={resetCounter}
                              disableButtonReset={disableButtonReset}/>
             </div>
         </div>

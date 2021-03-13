@@ -17,7 +17,7 @@ const OutputResult: React.FC<PropsType> = (
 ) => {
 
     return (
-        <div className={s.result}>
+        <div className={helpMessage === 'Incorrect value' ? s.error : s.result}>
             <span className={counterValue === maxValue ? s.finalResult : ''}>
                 {helpMessage ? helpMessage : counterValue}
             </span>

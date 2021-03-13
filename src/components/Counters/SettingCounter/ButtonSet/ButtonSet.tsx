@@ -15,7 +15,7 @@ const ButtonSet: React.FC<PropsType> = (
 ) => {
 
     return (
-        <button className={s.button}
+        <button className={helpMessage === 'Incorrect value' ? s.buttonError : s.button}
                 onClick={onClick}
                 disabled={helpMessage === 'Enter values and press set' ? false : true}>set</button>
     );

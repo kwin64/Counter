@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
 import SettingCounterValues from "./SettingCounterValues/SettingCounterValues";
 import ButtonSet from "./ButtonSet/ButtonSet";
 import s from './SettingCounter.module.css';
@@ -10,6 +10,7 @@ type PropsType = {
     maxValue: number
     setHelpMessage: (value: HelpMessageType) => void
     helpMessage: HelpMessageType
+    setDisableButtonInc: Dispatch<SetStateAction<boolean>>
 }
 
 const SettingCounter: React.FC<PropsType> = (
@@ -18,17 +19,24 @@ const SettingCounter: React.FC<PropsType> = (
         startValue,
         maxValue,
         setHelpMessage,
-        helpMessage}
+        helpMessage,
+        setDisableButtonInc
+    }
 ) => {
 
     const [start, setStart] = useState<number>(startValue)
     const [max, setMax] = useState<number>(maxValue)
 
+    useEffect( () => {
+        setStart(startValue)
+        setMax(maxValue)
+    },[maxValue, startValue])
+
     useEffect(() => {
         if (start < 0 || start >= max || max < 1) {
             setHelpMessage('Incorrect value')
         } else setHelpMessage('Enter values and press set')
-    },[start, max])
+    }, [start, max])
 
     const setNewValue = () => {
         addNewValueCounter(start, max)
@@ -39,8 +47,10 @@ const SettingCounter: React.FC<PropsType> = (
             <SettingCounterValues setMax={setMax}
                                   setStart={setStart}
                                   max={max}
-                                  start={start}/>
-            <div className={s.keyboards}>
+                                  start={start}
+                                  setDisableButtonInc={setDisableButtonInc}
+                                  helpMessage={helpMessage}/>
+            <div className={helpMessage === 'Incorrect value' ? s.keyboardsError : s.keyboards}>
                 <ButtonSet onClick={setNewValue}
                            helpMessage={helpMessage}/>
             </div>

@@ -4,8 +4,6 @@ import s from './Buttons.module.css';
 type PropsType = {
     resetCounter: () => void
     disableButtonReset: boolean
-    counterValue: number
-    maxValue: number
 }
 
 const ButtonReset: React.FC<PropsType> = (

@@ -15,16 +15,19 @@ const App = () => {
     const [disableButtonReset, setDisableButtonReset] = useState<boolean>(true)
 
     useEffect(() => {
-        const valueAsString = localStorage.getItem('counterValue')
-        if (valueAsString) {
-            const newValue = JSON.parse(valueAsString)
-            setCounterValue(newValue)
+        const valueMaxAsString = localStorage.getItem('counterMaxValue')
+        const valueStartAsString = localStorage.getItem('counterStartValue')
+        if (valueMaxAsString && valueStartAsString) {
+            const newMaxValue = JSON.parse(valueMaxAsString)
+            const newStartValue = JSON.parse(valueStartAsString)
+            setMaxValue(newMaxValue)
+            setStartValue(newStartValue)
         }
     }, [])
     useEffect(() => {
-        localStorage.setItem('counterMaxValue', JSON.stringify(maxValue))
-        localStorage.setItem('counterStartValue', JSON.stringify(startValue))
-    },[maxValue, startValue])
+        localStorage.setItem('counterMaxValue', maxValue.toString())
+        localStorage.setItem('counterStartValue', startValue.toString())
+    }, [maxValue, startValue])
 
     const addNumberCount = () => {
         if (counterValue + 1 <= maxValue) {
@@ -52,7 +55,6 @@ const App = () => {
                      resetCounter={resetCounter}
                      counterValue={counterValue}
                      maxValue={maxValue}
-                     startValue={startValue}
                      helpMessage={helpMessage}
                      disableButtonInc={disableButtonInc}
                      disableButtonReset={disableButtonReset}
@@ -62,6 +64,7 @@ const App = () => {
                             startValue={startValue}
                             setHelpMessage={setHelpMessage}
                             helpMessage={helpMessage}
+                            setDisableButtonInc={setDisableButtonInc}
             />
         </div>
     );

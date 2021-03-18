@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import React from 'react';
 import s from './Buttons.module.css';
 
@@ -14,10 +15,11 @@ const ButtonReset: React.FC<PropsType> = (
 ) => {
 
     return (
-        <button className={s.button}
+        <Button className={s.button}
+                variant="contained" color="secondary"
                 onClick={resetCounter}
                 disabled={disableButtonReset}
-        >reset</button>
+        >reset</Button>
     );
 }
 

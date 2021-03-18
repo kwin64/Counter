@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ButtonSet.module.css';
 import {HelpMessageType} from "../../../../App";
+import {Button} from "@material-ui/core";
 
 type PropsType = {
     onClick: () => void
@@ -15,9 +16,11 @@ const ButtonSet: React.FC<PropsType> = (
 ) => {
 
     return (
-        <button className={helpMessage === 'Incorrect value' ? s.buttonError : s.button}
+        <Button className={helpMessage === 'Incorrect value' ? s.buttonError : s.button}
+                variant="contained" color="primary"
                 onClick={onClick}
-                disabled={helpMessage === 'Enter values and press set' ? false : true}>set</button>
+                disabled={helpMessage === 'Enter values and press set' ? false : true}
+        >set</Button>
     );
 }
 

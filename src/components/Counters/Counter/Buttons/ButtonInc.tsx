@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Buttons.module.css';
+import {Button} from "@material-ui/core";
 
 type PropsType = {
     maxValue: number
@@ -18,10 +19,11 @@ const ButtonInc: React.FC<PropsType> = (
 ) => {
 
     return (
-        <button className={s.button}
+        <Button className={s.button}
+                variant="contained" color="primary"
                 onClick={addNumberCount}
                 disabled={disableButtonInc || counterValue === maxValue}
-        >inc</button>
+        >inc</Button>
     );
 }
 

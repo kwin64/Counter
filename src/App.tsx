@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Counter from './components/Counters/Counter/Counter';
 import SettingCounter from "./components/Counters/SettingCounter/SettingCounter";
 import s from './App.module.css';
+import {Paper} from "@material-ui/core";
 
 export type HelpMessageType = 0 | 'Incorrect value' | 'Enter values and press set'
 

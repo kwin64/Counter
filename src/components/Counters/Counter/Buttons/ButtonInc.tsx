@@ -23,7 +23,8 @@ const ButtonInc: React.FC<PropsType> = (
                 variant="contained" color="primary"
                 onClick={addNumberCount}
                 disabled={disableButtonInc || counterValue === maxValue}
-        >inc</Button>
+        >inc
+        </Button>
     );
 }
 

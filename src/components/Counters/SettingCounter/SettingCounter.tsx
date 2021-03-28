@@ -31,13 +31,11 @@ const SettingCounter: React.FC<PropsType> = (
         setStart(startValue)
         setMax(maxValue)
     },[maxValue, startValue])
-
     useEffect(() => {
         if (start < 0 || start >= max || max < 1) {
             setHelpMessage('Incorrect value')
         } else setHelpMessage('Enter values and press set')
     }, [start, max])
-
     const setNewValue = () => {
         addNewValueCounter(start, max)
     }

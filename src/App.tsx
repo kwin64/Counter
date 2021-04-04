@@ -6,10 +6,11 @@ import s from './App.module.css';
 export type HelpMessageType = 0 | 'Incorrect value' | 'Enter values and press set'
 
 const App = () => {
-
+    //bll
     const [counterValue, setCounterValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(1)
     const [startValue, setStartValue] = useState<number>(0)
+    //ui
     const [helpMessage, setHelpMessage] = useState<HelpMessageType>(0)
     const [disableButtonInc, setDisableButtonInc] = useState<boolean>(true)
     const [disableButtonReset, setDisableButtonReset] = useState<boolean>(true)
@@ -29,6 +30,9 @@ const App = () => {
         localStorage.setItem('counterStartValue', startValue.toString())
     }, [maxValue, startValue])
 
+
+    // const dispatch = useDispatch()
+
     const addNumberCount = () => {
         if (counterValue + 1 <= maxValue) {
             setCounterValue(counterValue + 1)
@@ -38,6 +42,9 @@ const App = () => {
         }
     }
     const addNewValueCounter = (startValue: number, maxValue: number) => {
+
+        // dispatch(addNewValueAc())
+
         setCounterValue(startValue)
         setMaxValue(maxValue)
         setStartValue(startValue)

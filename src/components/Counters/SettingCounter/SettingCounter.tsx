@@ -36,6 +36,7 @@ const SettingCounter: React.FC<PropsType> = (
             setHelpMessage('Incorrect value')
         } else setHelpMessage('Enter values and press set')
     }, [start, max])
+
     const setNewValue = () => {
         addNewValueCounter(start, max)
     }

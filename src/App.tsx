@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import Counter from './components/Counters/Counter/Counter';
 import SettingCounter from "./components/Counters/SettingCounter/SettingCounter";
 import s from './App.module.css';
+import {useDispatch} from "react-redux";
+import {reducerCounter} from "./components/Redux/reducerCounter";
 
 export type HelpMessageType = 0 | 'Incorrect value' | 'Enter values and press set'
 
@@ -10,6 +12,7 @@ const App = () => {
     const [counterValue, setCounterValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(1)
     const [startValue, setStartValue] = useState<number>(0)
+
     //ui
     const [helpMessage, setHelpMessage] = useState<HelpMessageType>(0)
     const [disableButtonInc, setDisableButtonInc] = useState<boolean>(true)
@@ -30,27 +33,27 @@ const App = () => {
         localStorage.setItem('counterStartValue', startValue.toString())
     }, [maxValue, startValue])
 
+    const dispatch = useDispatch()
 
-    // const dispatch = useDispatch()
+    const [counterValue, f] = useReducer(reducerCounter,)
 
     const addNumberCount = () => {
-        if (counterValue + 1 <= maxValue) {
-            setCounterValue(counterValue + 1)
-            if (counterValue + 1 === maxValue) {
-                setDisableButtonReset(false)
-            }
-        }
+        // if (counterValue + 1 <= maxValue) {
+        //     setCounterValue(counterValue + 1)
+        //     if (counterValue + 1 === maxValue) {
+        //         setDisableButtonReset(false)
+        //     }
+        // }
+
     }
     const addNewValueCounter = (startValue: number, maxValue: number) => {
-
-        // dispatch(addNewValueAc())
-
         setCounterValue(startValue)
         setMaxValue(maxValue)
         setStartValue(startValue)
         setDisableButtonInc(false)
         setHelpMessage(0)
     }
+
     const resetCounter = () => {
         setCounterValue(startValue)
         setDisableButtonReset(true)

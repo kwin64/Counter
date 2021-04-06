@@ -3,9 +3,9 @@ import {reducerCounter} from "./reducerCounter";
 
 
 const rootReducer = combineReducers({
-    reducer: reducerCounter
+    reducerCounter
 })
 
-type RootReducer = ReturnType<typeof rootReducer>
+export type RootReducer = ReturnType<typeof rootReducer>
 
 export const store = createStore(rootReducer)

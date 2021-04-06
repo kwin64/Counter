@@ -2,14 +2,15 @@ import React, {useEffect, useReducer, useState} from 'react';
 import Counter from './components/Counters/Counter/Counter';
 import SettingCounter from "./components/Counters/SettingCounter/SettingCounter";
 import s from './App.module.css';
-import {useDispatch} from "react-redux";
-import {reducerCounter} from "./components/Redux/reducerCounter";
+import {useDispatch, useSelector} from "react-redux";
+import {InitialStateType, reducerCounter} from "./components/Redux/reducerCounter";
+import {RootReducer} from "./components/Redux/store";
 
 export type HelpMessageType = 0 | 'Incorrect value' | 'Enter values and press set'
 
 const App = () => {
     //bll
-    const [counterValue, setCounterValue] = useState<number>(0)
+    // const [counterValue, setCounterValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(1)
     const [startValue, setStartValue] = useState<number>(0)
 
@@ -33,9 +34,10 @@ const App = () => {
         localStorage.setItem('counterStartValue', startValue.toString())
     }, [maxValue, startValue])
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
+    // const state = useSelector<RootReducer, reducerCounter>(state=>state.reducerCounter)
 
-    const [counterValue, f] = useReducer(reducerCounter,)
+    const [newCounterValue, dispatch] = useReducer(reducerCounter, 0)
 
     const addNumberCount = () => {
         // if (counterValue + 1 <= maxValue) {
